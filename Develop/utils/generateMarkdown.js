@@ -3,7 +3,7 @@
 function renderContributingSection(confirmContributers, data) {
   if (!confirmContributers) {
       return ` 
-      Thnak you for your interest in helping out; however, I will not be accepting contributions from third parties.
+      Thank you for your interest in helping out; however, I will not be accepting contributions from third parties.
       `;
   } else {
       return `
@@ -23,12 +23,12 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license == 'MIT') {
-    return`![license](https://img.shields.io/badge/license-${license})`
+    return`[${license}](https://img.shields.io/badge/license-${license})`
   }
   if (license ==='Apache'){
-    return `[${License}(https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+    return `[${license}(https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
   }
-  if (license === 'CC--0') {
+  if (license === 'A') {
     return `https://creativecommons.org/license/by-nd/4.0`
   }
 }
@@ -74,17 +74,7 @@ function generateMarkdown(data) {
   * [Tests](#tests)
   * [Questions](#questions)
   
-  ## [Description](#table-of-contents)
-  * [Description](#description)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Licenses](#licenses)
-  * [Contributing](#contributing)
-  * [Tests](#tests)
-  * [Questions](#questions)
-  * [Credits](#credits)
-  
-  ##Description
+  ## Description
   ${data.description}
 
   ## [Installation](#table-of-contents)
@@ -93,22 +83,17 @@ function generateMarkdown(data) {
   ## [Usage](#table-of-contents)
   ${data.usage}
 
-  ${renderLicenseSection(data.license)}
-
   ## Contributing
   ${data.usage}
-  
+
   ${renderContributingSection(data.confirmContributers, data.contribute)}
   ## [Tests](#table-of-contents)
   ${data.test}
 
-  ## [Questions](#table-of-contents)
+  ##  [Questions](#table-of-contents)
   Please contact me using the following links:
   [GitHub](https://github.com/${data.githubUsername})
   [Email: ${data.email}](mailto:${data.email})
-
-  ## Credits
-  ${data.name}
 `;
 }
 

@@ -59,20 +59,7 @@ const questions = [
             return false;
         }
     }
-},
-{
-    type: 'input',
-    name: 'why',
-    message: 'Why did you create this project? (Required)',
-    validate: whyinput => {
-        if (whyinput){
-        return true;
-    } else {
-        console.log('Please enter why you created this project!');
-        return false;
-       }
-    }
-},  
+}, 
 {
     type: 'input',
     name: 'installation',
@@ -150,7 +137,7 @@ const questions = [
 // TODO: Create a function to write README file
 const writeToFile = data  => {
     return new Promise((resolve, reject) => {
-        fs.writeToFile('./dist/generated-README.md', data, err => {
+        fs.writeFile('README.md', data, err => {
             if (err) {
                 reject(err);
                 return;
@@ -158,7 +145,7 @@ const writeToFile = data  => {
 
             resolve({
                 ok: true,
-                message: console.Console.log('File created!')
+                message: console.log('File created!')
             });
         })
     })
